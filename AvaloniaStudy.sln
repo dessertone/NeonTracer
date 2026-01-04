@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatingControl", "RatingControl\RatingControl.csproj", "{FBD60B4A-0867-4BE6-8490-85F3C45572C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowflakesControl", "SnowflakesControl\SnowflakesControl.csproj", "{0E20E2F5-6645-4A40-B4E1-CA605242FBFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeonTracer", "NeonTracer\NeonTracer.csproj", "{340ED773-66CD-4FA7-9FCF-E2F5F0FE8745}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBD60B4A-0867-4BE6-8490-85F3C45572C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD60B4A-0867-4BE6-8490-85F3C45572C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD60B4A-0867-4BE6-8490-85F3C45572C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD60B4A-0867-4BE6-8490-85F3C45572C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E20E2F5-6645-4A40-B4E1-CA605242FBFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E20E2F5-6645-4A40-B4E1-CA605242FBFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E20E2F5-6645-4A40-B4E1-CA605242FBFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E20E2F5-6645-4A40-B4E1-CA605242FBFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340ED773-66CD-4FA7-9FCF-E2F5F0FE8745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340ED773-66CD-4FA7-9FCF-E2F5F0FE8745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340ED773-66CD-4FA7-9FCF-E2F5F0FE8745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340ED773-66CD-4FA7-9FCF-E2F5F0FE8745}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

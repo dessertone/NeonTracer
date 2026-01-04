@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="AvaloniaStudy/Views/MainWindow.axaml" value="AvaloniaStudy/AvaloniaStudy.csproj" />
+        <entry key="NeonTracer/App.axaml" value="NeonTracer/NeonTracer.csproj" />
+        <entry key="NeonTracer/Resources/Styles/NeonButtonStyle.axaml" value="NeonTracer/NeonTracer.csproj" />
+        <entry key="NeonTracer/Resources/Themes/Button.axaml" value="NeonTracer/NeonTracer.csproj" />
+        <entry key="NeonTracer/Views/GameView.axaml" value="NeonTracer/NeonTracer.csproj" />
+        <entry key="NeonTracer/Views/MainWindow.axaml" value="NeonTracer/NeonTracer.csproj" />
+        <entry key="RatingControl/App.axaml" value="RatingControl/RatingControl.csproj" />
+        <entry key="RatingControl/Themes/RatingStyles.axaml" value="RatingControl/RatingControl.csproj" />
+        <entry key="RatingControl/Themes/Styles1.axaml" value="RatingControl/RatingControl.csproj" />
+        <entry key="RatingControl/Views/MainWindow.axaml" value="RatingControl/RatingControl.csproj" />
+        <entry key="RatingControls/App.axaml" value="RatingControls/RatingControls.csproj" />
+        <entry key="SnowflakesControl/App.axaml" value="SnowflakesControl/SnowflakesControl.csproj" />
+        <entry key="SnowflakesControl/Views/GameStartView.axaml" value="SnowflakesControl/SnowflakesControl.csproj" />
+        <entry key="SnowflakesControl/Views/MainWindow.axaml" value="SnowflakesControl/SnowflakesControl.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

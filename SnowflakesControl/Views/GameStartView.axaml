@@ -1,0 +1,34 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:control="using:SnowflakesControl.Controls"
+             xmlns:vm="using:SnowflakesControl.ViewModels"
+             x:DataType="vm:GameStartViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SnowflakesControl.Views.GameStartView">
+    <Panel>
+        <Panel.Background>
+            Black
+        </Panel.Background>
+        <ProgressBar Maximum="{Binding GameDurationMilliseconds}"
+                     VerticalAlignment="Top"
+                     Foreground="Goldenrod"
+                     Margin="5"
+                     Height="3"
+                     Value="{Binding MillisecondsRemaining}" />
+        <control:SnowflakesControl HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                   IsRunning="{Binding IsGameRunning}"
+                                   Score="{Binding Score}"
+                                   Snowflakes="{Binding Snowflakes}">
+        </control:SnowflakesControl>
+        <Button IsVisible="{Binding !IsGameRunning}"
+                Command="{Binding StartGameCommand}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="►"
+                FontSize="50"
+                CornerRadius="25" />
+    </Panel>
+</UserControl>
