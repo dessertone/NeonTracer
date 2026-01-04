@@ -1,0 +1,107 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:NeonTracer.ViewModels"
+             xmlns:control="using:NeonTracer.Controls"
+             xmlns:media="clr-namespace:Avalonia.Media;assembly=Avalonia.Base"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="600"
+             x:DataType="vm:GameViewModel"
+             x:Class="NeonTracer.Views.GameView">
+    
+    <Grid RowDefinitions="Auto, *">
+        <Border Grid.Row="0" 
+                Height="80" 
+                Background="{StaticResource GlassBrush}" 
+                BorderBrush="#4400FFFF" 
+                BorderThickness="0,0,0,1"
+                BoxShadow="0 5 20 0 #22000000">
+            <Grid ColumnDefinitions="Auto * Auto Auto">
+                
+                <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="30,0">
+                    <TextBlock Text="VISUAL GAME" FontSize="10" Foreground="Cyan" Opacity="0.6" LetterSpacing="2"/>
+                    <TextBlock Text="NEON TRACER" FontSize="14" Foreground="White" FontWeight="Light"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="SCORE" FontSize="20" Foreground="Cyan" VerticalAlignment="Bottom" Margin="0,0,10,6"/>
+                    <TextBlock Text="{Binding Score}" 
+                               FontSize="36" 
+                               Foreground="White" 
+                               FontWeight="Black" 
+                               FontFamily="Courier New"/> 
+                </StackPanel>
+                <Border Grid.Column="2" Margin="15" Background="#22FFFFFF" CornerRadius="10" Padding="10,8">
+                    <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                        <TextBlock Text="AI" VerticalAlignment="Center" Foreground="Cyan" FontSize="12"/>
+                            
+                        <ComboBox ItemsSource="{Binding AvailableColors}" 
+                                  SelectedItem="{Binding SelectedTrackerColor}"
+                                  Width="70" Height="30"
+                                  VerticalAlignment="Center">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate x:DataType="media:Color">
+                                    <Border Width="20" Height="20" CornerRadius="10">
+                                        <Border.Background>
+                                            <SolidColorBrush Color="{Binding}"/>
+                                        </Border.Background>
+                                    </Border>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                            
+                        <Button  HorizontalContentAlignment="Center"
+                                  IsEnabled="{Binding IsRunning}" Classes="Neon"  Command="{Binding AddTrackerCommand}" Content="+" Width="30" Padding="0"/>
+                        <Button HorizontalContentAlignment="Center" IsEnabled="{Binding IsRunning}" Classes="Neon" Command="{Binding RemoveTrackerCommand}" Content="-" Width="30" Padding="0"/>
+                    </StackPanel>
+                </Border>
+                <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin ="30,0" Spacing="20">
+                    
+                    <Button Classes="Neon" Command="{Binding StartCommand}" Content="START"/>
+                    <Button IsEnabled="{Binding IsStart}" Classes="Neon" Command="{Binding PauseCommand}" Content="PAUSE"/>
+                    <Button Classes="Neon" Command="{Binding StopCommand}" Content="STOP"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <control:GameCanvas Grid.Row="1" 
+                            GameEngine="{Binding GameEngine}"
+                            Score="{Binding Score}"
+                            IsRunning="{Binding IsRunning}"
+                            x:Name="MainCanvas"/>
+
+        <Border Grid.Row="1" 
+                IsVisible="{Binding !IsRunning}" 
+                Background="#CC000000"
+                ZIndex="10">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="30">
+                <Rectangle Width="100" Height="2" Fill="Gold">
+                    <Rectangle.Transitions>
+                        <Transitions>
+                            <DoubleTransition Property="Width" Duration="0:0:0.5"/>
+                        </Transitions>
+                    </Rectangle.Transitions>
+                </Rectangle>
+            
+                <TextBlock Text="{Binding GameStateText}" 
+                           FontSize="80" 
+                           Foreground="Gold" 
+                           FontWeight="Black"
+                           TextAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="Gold" Opacity="0.5"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+
+                <Button Classes="Neon" 
+                        Command="{Binding StartCommand}" 
+                        Content="PRESS TO START" 
+                        HorizontalAlignment="Center"
+                        BorderBrush="Gold" 
+                        Foreground="Gold"/>
+            
+                <Rectangle Width="100" Height="2" Fill="Gold"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,126 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Background="Black">
+            <ThemeVariantScope RequestedThemeVariant="Default">
+                <Border Padding="20">
+                    <StackPanel Spacing="20">
+                        <Button Classes="Neon" Content="Click Me!" />
+                    </StackPanel>
+                </Border>
+            </ThemeVariantScope>
+            <ThemeVariantScope RequestedThemeVariant="Light">
+                <Border Padding="20">
+                    <StackPanel Spacing="20">
+                        <Button Classes="Neon" Content="Click Me!" />
+                    </StackPanel>
+                </Border>
+            </ThemeVariantScope>
+            <ThemeVariantScope RequestedThemeVariant="Dark">
+                <Border Padding="20">
+                    <StackPanel Spacing="20">
+                        <Button Classes="Neon" Content="Click Me!" />
+                    </StackPanel>
+                </Border>
+            </ThemeVariantScope>
+        </StackPanel>
+    </Design.PreviewWith>
+    <Styles.Resources>
+        <Color x:Key="NeonCyan">#00FFFF</Color>
+        <BoxShadows x:Key="NeonGlow">0 0 15 2 #4400FFFF</BoxShadows>
+    </Styles.Resources>
+    
+    <Style Selector="Button.Neon">
+        <Setter Property="Background" Value="#1100FFFF"/>
+        <Setter Property="BorderBrush" Value="Cyan"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="20,8"/>
+        <Setter Property="Foreground" Value="Cyan"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="ClipToBounds" Value="True"/>
+        
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Name="BackgroundLayer"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"/>
+
+                    <Border Name="ScanLayer" 
+                            IsHitTestVisible="False" 
+                            Opacity="0"
+                            ClipToBounds="{TemplateBinding ClipToBounds}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%">
+                                <GradientStop Offset="0.0" Color="Transparent"/>
+                                <GradientStop Offset="0.1" Color="#AA00FFFF"/>
+                                <GradientStop Offset="0.2" Color="Transparent"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.RenderTransform>
+                            <TranslateTransform X="-150" />
+                        </Border.RenderTransform>
+                    </Border>
+
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Padding="{TemplateBinding Padding}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"/>
+
+                    <Border Name="BorderLayer"
+                            Background="Transparent"
+                            IsHitTestVisible="False"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"/>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Setter Property="Transitions">
+            <Transitions>
+                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1"/>
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button.Neon:pointerover /template/  ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Foreground" Value="Cyan"></Setter>
+    </Style>
+    <Style Selector="Button.Neon:pointerover /template/ Border#ScanLayer">
+        <Setter Property="Opacity" Value="0.7"/>
+        <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="Infinite" PlaybackDirection="Normal">
+                <KeyFrame KeyTime="0:0:0">
+                    <Setter Property="TranslateTransform.X" Value="0"/>
+                </KeyFrame>
+                <KeyFrame KeyTime="0:0:2">
+                    <Setter Property="TranslateTransform.X" Value="150"/>
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <Style Selector="Button.Neon:pointerover /template/ Border#BackgroundLayer">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style Selector="Button.Neon:pointerover /template/ Border#BorderLayer">
+        <Setter Property="BoxShadow" Value="{StaticResource NeonGlow}"/>
+        <Setter Property="BorderBrush" Value="Cyan"/> </Style>
+
+    <Style Selector="Button.Neon:pressed">
+        <Setter Property="RenderTransform" Value="scale(0.95)"/>
+    </Style>
+    <Style Selector="Button.Neon:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="Cyan" />
+    </Style>
+</Styles>
