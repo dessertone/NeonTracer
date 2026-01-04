@@ -1,0 +1,29 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RatingControl.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:controls="using:RatingControl.Controls"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RatingControl.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="RatingControl">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>    
+    <StackPanel>
+        <Slider Value="{Binding NumOfStars}" Maximum="10" MaxWidth="300" Minimum="1"></Slider>
+        <NumericUpDown Value="{Binding PreviewValue}"></NumericUpDown>
+        <Button  Command="{Binding SubmitCommand}"></Button>
+        <controls:RatingControl PreviewValue="{Binding PreviewValue}" Value="{Binding Value}" NumberOfStars="{Binding NumOfStars}"></controls:RatingControl>
+        <controls:RatingControl Value="{Binding Value}" NumberOfStars="{Binding NumOfStars}"></controls:RatingControl>
+        <controls:RatingControl Value="{Binding Value}" NumberOfStars="{Binding NumOfStars}"></controls:RatingControl>
+        <controls:RatingControl Value="{Binding Value}" NumberOfStars="{Binding NumOfStars}"></controls:RatingControl>
+        <controls:RatingControl Value="{Binding Value}" NumberOfStars="{Binding NumOfStars}"></controls:RatingControl>
+        <controls:RatingControl Value="{Binding Value}" NumberOfStars="{Binding NumOfStars}"></controls:RatingControl>
+    </StackPanel>
+</Window>
