@@ -108,7 +108,7 @@ public class GameEngine
     }
 
     /// <summary>
-    /// 新增：处理自动追踪器
+    /// 处理自动追踪器
     /// </summary>
     private void ProcessAutoTrackers(double elapsedSeconds)
     {
@@ -134,7 +134,7 @@ public class GameEngine
     }
 
     /// <summary>
-    /// 重构：仅处理鼠标队列的取值逻辑
+    /// 处理鼠标队列的取值逻辑
     /// </summary>
     private void ProcessMouseInput(Queue<Point> moveQueue)
     {
