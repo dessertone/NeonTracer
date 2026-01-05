@@ -1,5 +1,0 @@
-﻿F:\Temp\Pulish\NeonTracer.pdb
-F:\Temp\Pulish\av_libglesv2.dll
-F:\Temp\Pulish\libHarfBuzzSharp.dll
-F:\Temp\Pulish\libSkiaSharp.dll
-F:\Temp\Pulish\NeonTracer.exe
