@@ -99,17 +99,16 @@ public class GameCanvas : Control
         ClipToBounds = true;
         Focusable = true;
 
-        // 初始化定时器：解决卡顿和死锁的核心
         _gameTimer = new DispatcherTimer(DispatcherPriority.Render)
         {
-            // 设定约 60 FPS (1000ms / 60 ≈ 16ms)
-            Interval = TimeSpan.FromMilliseconds(8)
+            // 60 FPS 
+            Interval = TimeSpan.FromMilliseconds(16)
         };
         _gameTimer.Tick += GameTick;
     }
 
     /// <summary>
-    /// 当依赖属性发生变化时触发（核心控制逻辑）
+    /// 启动计时器
     /// </summary>
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
@@ -140,7 +139,7 @@ public class GameCanvas : Control
 
             if (newEngine != null)
             {
-                newEngine.Bounds = Bounds; // 初始化边界
+                newEngine.Bounds = Bounds;
                 newEngine.ScoreChanged += OnEngineScoreChanged;
             }
         }
@@ -157,7 +156,6 @@ public class GameCanvas : Control
     /// </summary>
     private void OnEngineScoreChanged(double newScore)
     {
-        // 将引擎的分数同步回 UI 属性
         Score = newScore;
     }
 
@@ -226,7 +224,6 @@ public class GameCanvas : Control
         base.OnPointerReleased(e);
         if (!IsRunning) return;
 
-        // 只有当左键松开时才停止
         if (!e.GetCurrentPoint(this).Properties.IsLeftButtonPressed)
         {
             _isPressed = false;

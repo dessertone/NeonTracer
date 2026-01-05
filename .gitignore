@@ -1,0 +1,17 @@
+[Bb]in/
+[Ob]j/
+.idea/
+*.user
+*.suo
+# 忽略编译输出
+[Dd]ebug/
+[Rr]elease/
+obj/
+bin/
+RatingControl/
+
+SnowflakesControl/
+# 忽略 IDE 配置文件
+.vs/
+*.user
+*.suo

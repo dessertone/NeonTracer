@@ -81,7 +81,6 @@ public class GameEngine
     }
     private Color HsvToRgb(double h, double s, double v) 
     {
-        // ... (保持原代码不变) ...
         int hi = (int)(Math.Floor(h / 60.0)) % 6;
         double f = h / 60.0 - Math.Floor(h / 60.0);
         byte vByte = (byte)(v * 255);
